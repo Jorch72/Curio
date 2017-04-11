@@ -1,0 +1,24 @@
+[  
+   {  
+      "modid":"curio",
+      "name":"Curio",
+      "description":"API for mods and modpacks which allows for the inventory of the player to be customized.",
+      "version":"${version}",
+      "mcversion":"${mcversion}",
+      "logoFile": "",
+      "url":"http://www.darkhax.net",
+      "updateUrl":"",
+      "authorList":[  
+         "Darkhax"
+      ],
+      "credits":"",
+      "logoFile":"",
+      "screenshots":[  
+
+      ],
+      "parent":"",
+      "dependencies":[  
+
+      ]
+   }
+]
