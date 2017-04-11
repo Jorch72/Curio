@@ -1,6 +1,6 @@
 package net.darkhax.curio;
 
-import net.darkhax.curio.libs.Constants;
+import net.darkhax.curio.lib.Constants;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

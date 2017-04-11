@@ -1,4 +1,4 @@
-package net.darkhax.curio.libs;
+package net.darkhax.curio.lib;
 
 import java.util.Random;
 
