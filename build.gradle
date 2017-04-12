@@ -35,7 +35,7 @@ targetCompatibility = 1.8
 
 group = "net.darkhax.curio"
 archivesBaseName = "Curio"
-version = getVersionFromJava(file("src/main/java/net/darkhax/curio/libs/Constants.java"))
+version = getVersionFromJava(file("src/main/java/net/darkhax/curio/lib/Constants.java"))
 
 //Defines the MC environment information.
 minecraft {
