@@ -1,4 +1,4 @@
-package net.darkhax.curio.api.capabilities;
+package net.darkhax.curio.capabilities;
 
 import net.darkhax.curio.api.curio.ICurio;
 import net.minecraft.nbt.NBTBase;
