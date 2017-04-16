@@ -1,4 +1,4 @@
-package net.darkhax.curio.lib;
+package net.darkhax.curio.api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import net.darkhax.curio.api.curio.ICurio;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
-public class Utilities {
+public class CurioUtils {
 
     public static boolean isCurio (@Nonnull ItemStack stack) {
 
