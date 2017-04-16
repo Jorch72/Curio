@@ -3,9 +3,12 @@ package net.darkhax.curio.api.curio;
 import javax.annotation.Nonnull;
 
 import net.darkhax.curio.api.type.ICurioType;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * This interface is used to define a curio. Curio are capability based, so you should not be
@@ -80,7 +83,7 @@ public interface ICurio {
      * @param stack The ItemStack context of the item being worn.
      * @param weaer The entity wearing the item.
      */
-    default void onUpdate (@Nonnull ItemStack stack, @Nonnull EntityLivingBase weaer) {
+    default void onUpdate (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
 
     }
 
@@ -96,5 +99,20 @@ public interface ICurio {
     default NonNullList<ICurio> getContainedCurio (@Nonnull ItemStack stack, @Nonnull EntityLivingBase weaer) {
 
         return NonNullList.create();
+    }
+
+    /**
+     * Called when the wearer is rendered while having this curio.
+     *
+     * @param stack The ItemStack context of the curio item.
+     * @param wearer The entity wearing the curio.
+     * @param partialTicks The partial ticks.
+     * @return The model for this curio. Null will set the model to nothing, and it will be
+     *         skipped.
+     */
+    @SideOnly(Side.CLIENT)
+    default ModelBiped render (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, float partialTicks) {
+
+        return null;
     }
 }
