@@ -2,7 +2,7 @@ package net.darkhax.curio.api.curio;
 
 import javax.annotation.Nonnull;
 
-import net.darkhax.curio.api.type.ICurioType;
+import net.darkhax.curio.api.type.CurioType;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
@@ -27,7 +27,7 @@ public interface ICurio {
      * @param stack The ItemStack context of the item being checked.
      * @return The type of curio.
      */
-    ICurioType getType (@Nonnull ItemStack stack);
+    CurioType getType (@Nonnull ItemStack stack);
 
     /**
      * Checks if the curio can be equipped by the player.

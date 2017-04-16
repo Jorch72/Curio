@@ -1,7 +1,7 @@
 package net.darkhax.curio.api.capabilities;
 
 import net.darkhax.curio.api.curio.ICurio;
-import net.darkhax.curio.api.type.ICurioType;
+import net.darkhax.curio.api.type.CurioType;
 import net.minecraft.item.ItemStack;
 
 /**
@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 public class CurioDefault implements ICurio {
 
     @Override
-    public ICurioType getType (ItemStack stack) {
+    public CurioType getType (ItemStack stack) {
 
         // TODO no null
         return null;
