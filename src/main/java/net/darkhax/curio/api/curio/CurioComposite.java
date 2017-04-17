@@ -2,6 +2,7 @@ package net.darkhax.curio.api.curio;
 
 import javax.annotation.Nonnull;
 
+import net.darkhax.curio.api.type.CurioType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -39,37 +40,37 @@ public abstract class CurioComposite implements ICurio {
     }
 
     @Override
-    public boolean canEquip (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    public boolean canEquip (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, CurioType type) {
 
         for (final ICurio curio : this.heldCurio)
-            if (!curio.canEquip(stack, wearer))
+            if (!curio.canEquip(stack, wearer, type))
                 return false;
 
         return true;
     }
 
     @Override
-    public boolean canRemove (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    public boolean canRemove (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, CurioType type) {
 
         for (final ICurio curio : this.heldCurio)
-            if (!curio.canRemove(stack, wearer))
+            if (!curio.canRemove(stack, wearer, type))
                 return false;
 
         return true;
     }
 
     @Override
-    public void onEquipped (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    public void onEquipped (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, CurioType type) {
 
         for (final ICurio curio : this.heldCurio)
-            curio.onEquipped(stack, wearer);
+            curio.onEquipped(stack, wearer, type);
     }
 
     @Override
-    public void onRemoved (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    public void onRemoved (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, CurioType type) {
 
         for (final ICurio curio : this.heldCurio)
-            curio.onRemoved(stack, wearer);
+            curio.onRemoved(stack, wearer, type);
     }
 
     @Override

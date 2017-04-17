@@ -1,7 +1,6 @@
 package net.darkhax.curio.inventory;
 
 import net.darkhax.curio.api.CurioUtils;
-import net.darkhax.curio.api.curio.ICurio;
 import net.darkhax.curio.api.type.CurioType;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,35 +23,21 @@ public class SlotCurio extends SlotItemHandler {
     @Override
     public boolean isItemValid (ItemStack stack) {
 
-        for (final ICurio curio : CurioUtils.getCurioForStack(stack, this.entity))
-            if (!this.type.isCurioValid(curio, stack, this.entity))
-                return false;
-
-        return true;
+        return CurioUtils.isCurio(stack);
     }
 
     @Override
     public boolean canTakeStack (EntityPlayer player) {
 
-        for (final ICurio curio : CurioUtils.getCurioForStack(this.getStack(), this.entity))
-            if (!curio.canRemove(this.getStack(), this.entity))
-                return false;
-
-        return true;
+        return CurioUtils.canRemove(this.entity, this.type, this.getStack(), this);
     }
 
     @Override
     public void putStack (ItemStack stack) {
 
-        if (this.getHasStack())
-            for (final ICurio curio : CurioUtils.getCurioForStack(this.getStack(), this.entity))
-                curio.onRemoved(this.getStack(), this.entity);
-
+        CurioUtils.onCurioRemoved(this.entity, this.type, stack, this);
         super.putStack(stack);
-
-        if (this.getHasStack())
-            for (final ICurio curio : CurioUtils.getCurioForStack(this.getStack(), this.entity))
-                curio.onEquipped(this.getStack(), this.entity);
+        CurioUtils.onCurioEquip(this.entity, this.type, stack, this);
     }
 
     @Override

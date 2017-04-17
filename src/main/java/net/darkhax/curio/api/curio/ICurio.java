@@ -2,6 +2,7 @@ package net.darkhax.curio.api.curio;
 
 import javax.annotation.Nonnull;
 
+import net.darkhax.curio.api.CurioUtils;
 import net.darkhax.curio.api.type.CurioType;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
@@ -32,12 +33,17 @@ public interface ICurio {
     /**
      * Checks if the curio can be equipped by the player.
      *
+     * NOTE: This method is not the only factor in checking if a Curio can be equipped. If
+     * you're calling this method, please use
+     * {@link CurioUtils#canEquip(EntityLivingBase, CurioType, ItemStack, net.darkhax.curio.inventory.SlotCurio)}
+     * instead.
+     *
      * @param stack The ItemStack context of the item being equipped.
      * @param wearer The entity trying to equip the item.
+     * @param type The type of slot being interacted with.
      * @return Whether or not the item could be equipped.
      */
-    // TODO add slot context
-    default boolean canEquip (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    default boolean canEquip (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, @Nonnull CurioType type) {
 
         return true;
     }
@@ -45,12 +51,17 @@ public interface ICurio {
     /**
      * Checks if the curio can be removed by the player.
      *
+     * NOTE: This method is not the only factor in checking if a Curio can be removed. If
+     * you're calling this method, please use
+     * {@link CurioUtils#canRemove(EntityLivingBase, CurioType, ItemStack, net.darkhax.curio.inventory.SlotCurio)}
+     * instead.
+     *
      * @param stack The ItemStack context of the item being removed.
      * @param wearer The entity trying to remove the item.
+     * @param type The type of slot being interacted with.
      * @return Whether or not the item could be removed.
      */
-    // TODO add slot context
-    default boolean canRemove (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    default boolean canRemove (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, @Nonnull CurioType type) {
 
         return true;
     }
@@ -58,22 +69,30 @@ public interface ICurio {
     /**
      * Called when the item is equipped.
      *
+     * NOTE: This method is not the only equip hook. Please use
+     * {@link CurioUtils#onCurioEquip(EntityLivingBase, CurioType, ItemStack, net.darkhax.curio.inventory.SlotCurio)}
+     * instead.
+     *
      * @param stack The ItemStack context of the item being equipped.
      * @param wearer The entity trying to equip the item.
+     * @param type The type of slot being interacted with.
      */
-    // TODO add slot context
-    default void onEquipped (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    default void onEquipped (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, @Nonnull CurioType type) {
 
     }
 
     /**
      * Called when the item is removed.
      *
+     * NOTE: This method is not the only remove hook. Please use
+     * {@link CurioUtils#onCurioRemoved(EntityLivingBase, CurioType, ItemStack, net.darkhax.curio.inventory.SlotCurio)}
+     * instead.
+     *
      * @param stack The ItemStack context of the item being removed.
      * @param wearer The entity trying to remove the item.
+     * @param type The type of slot being interacted with.
      */
-    // TODO add slot context
-    default void onRemoved (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer) {
+    default void onRemoved (@Nonnull ItemStack stack, @Nonnull EntityLivingBase wearer, @Nonnull CurioType type) {
 
     }
 
