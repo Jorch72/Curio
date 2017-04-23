@@ -121,6 +121,18 @@ public interface ICurio {
     }
 
     /**
+     * Checks if the curio can be applied to the passed ItemStack. If your curio only works on
+     * certain items, you will want to add that here. By default all items are applicable.
+     *
+     * @param stack The ItemStack that is being tested for compatibility.
+     * @return Whether or not the curio can be applied to the stack.
+     */
+    default boolean isApplicable (ItemStack stack) {
+
+        return true;
+    }
+
+    /**
      * Called when the wearer is rendered while having this curio.
      *
      * @param stack The ItemStack context of the curio item.
