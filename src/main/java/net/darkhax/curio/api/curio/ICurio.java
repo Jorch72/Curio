@@ -127,7 +127,7 @@ public interface ICurio {
      * @param stack The ItemStack that is being tested for compatibility.
      * @return Whether or not the curio can be applied to the stack.
      */
-    default boolean isApplicable (ItemStack stack) {
+    default boolean isApplicable (@Nonnull ItemStack stack) {
 
         return true;
     }
